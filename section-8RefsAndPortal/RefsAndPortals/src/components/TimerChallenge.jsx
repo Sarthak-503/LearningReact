@@ -40,14 +40,14 @@ const TimerChallenge = ({title, targetTime}) => {
    // Use-cases where you have a value that doesn't really impact the UI, at least not directly, 
    //and you still need to manage it such that it's not reset when the component is re-executed, then you can use a ref.
 
-    const dialog = useRef();
+    const dialog = useRef(); // this comp should know that dialog ref is connected to dialog element, you write code is not dependent of ResultModel comp
     const [timerStarted, settimerStarted] = useState(false)
     const [timerExpired, setTimerExpired] = useState(false);
 
     function handleStart() {
         timer.current = setTimeout(() => {
             setTimerExpired(true);
-            dialog.current.showModel();
+            dialog.current.open() // used to blur bg
             
         }, targetTime*1000)
         settimerStarted(true)
@@ -57,7 +57,9 @@ const TimerChallenge = ({title, targetTime}) => {
    }
   return (
     <>
-     <ResultModal ref={dialog} targetTime={targetTime} result="lost"/>
+    {/* { timerExpired && <ResultModal targetTime={targetTime} result="lost"/> } */}
+       <ResultModal ref={dialog} targetTime={targetTime} result="lost"/> 
+
     <section className='challenge'>
         <h2>{title}</h2>
         {timerExpired && <p>You lost!!! </p>}
