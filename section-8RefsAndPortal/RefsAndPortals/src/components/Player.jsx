@@ -5,7 +5,7 @@ export default function Player() {
   const [enteredPlayerName,setEnteredName] = useState('');
   const [submitted,setSubmitted] = useState(false);
   function handleChange(event){
-    setSubmitted(false);// when changes from 1 name to another set 'unknown entity' 
+    setSubmitted(false);// when changes from 1 already set name to another set 'unknown entity' 
     setEnteredName(event.target.value);
   }
   function handleClick(){
@@ -21,11 +21,11 @@ export default function Player() {
     </section>
   );
 }*/
+
 import { useRef, useState } from "react";
 export default function Player() {
   const playerName = useRef();
 
-  // uses a third variable to store the last submitted code but it is a bad practise
   const [enteredPlayerName,setEnteredName] = useState(null);
 
   function handleClick(){
