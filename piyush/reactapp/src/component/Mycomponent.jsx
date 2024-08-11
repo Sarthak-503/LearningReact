@@ -4,8 +4,10 @@ const Mycomponent = () => {
     const [count, setCount] = useState(0);
     const [count2, setCount2] = useState(10);
     useEffect(() => {
-        console.log("My Component is Mounting");
-        return ()=>{
+      // when component is Mounting
+      console.log("My Component is Mounting");
+      // when component is UnMounting
+      return ()=>{
             console.log("Unmounting.....");
         }
     }, []) // dependency array
@@ -13,7 +15,7 @@ const Mycomponent = () => {
     useEffect(() => {
         console.log("Count Got Updated",count);
         return ()=>{
-            console.log("Returning Count", count );
+            console.log("Unmounting And Returning Count", count);
         }
     }, [count,count2]) 
     

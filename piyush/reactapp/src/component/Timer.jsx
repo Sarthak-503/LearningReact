@@ -14,7 +14,7 @@ const Timer = () => {
         const timer = setInterval(()=>{
             setCount(count+1);
         },1000)
-        // UnMounting -> clearing up the previous interval 
+        // UnMounting -> clearing up the previous interval -> otherwise it stacks up and create problem
         return ()=>{
             clearInterval(timer)
         }

@@ -2,6 +2,7 @@ import React from 'react'
 import { useContext } from 'react';
 import { CartContext } from '../context/Cart';
 const Item = (props) => {
+  
   const cart = useContext(CartContext);
   console.log(cart);
   return (
