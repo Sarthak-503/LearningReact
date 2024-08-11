@@ -5,16 +5,23 @@ import Timer from "./component/Timer";
 import Counter from "./component/Counter";
 import {CounterContext} from "./context/Counter"
 import Item from "./component/Item";
-import Cart from "./component/Cart";
+// import Cart from "./component/Cart";
+import Counter2 from "./component2/Count";
 // import {Item} from "./component/Item";
+import { useDispatch } from "react-redux";
+
+import Product from './component2/Product'; 
+import products from './products.json';
+import Cart1 from "./component2/Cart1";
 function App() {
-   const [visible, setVisible] = useState(false);
-  useEffect(()=>{
-    console.log("App Comp is Mounting.....");
-  },[])
+  //  const [visible, setVisible] = useState(false);
+  // useEffect(()=>{
+  //   console.log("App Comp is Mounting.....");
+  // },[])
 
   // const counterState = useContext(CounterContext);
-  
+
+  const dispatch = useDispatch();
   return (
     <>
     {/* UseEffect  */}
@@ -31,7 +38,7 @@ function App() {
         <Counter/>
         <Counter/>
       </div> */}
-      <div style={{
+      {/* <div style={{
         display:'flex',
         alignItems:'center',
         flexDirection:'column'
@@ -41,7 +48,30 @@ function App() {
       <Item name="PenDrive" price={100}/>
       <Item name="Mobile" price={20000}/>
       <Cart/>
+      </div> */}
+      {/* React-Redux  */}
+      {/* <button onClick={e => dispatch({
+        type:'INCREMENT'
+      })}>Increment</button>
+        <Counter2/>
+      <button onClick={e => dispatch({
+        type:'DECREMENT'
+      })}>Decrement</button> */}
+
+{/* React-Redux Toolkit  */}
+<div className="App">
+      <Cart1 />
+      <div style={{
+        display:"flex",
+        flexDirection:'row',
+        width:'20rem'
+      }}>
+        {products.map((product) => (
+          <Product key={product.id} {...product} />
+        ))}
       </div>
+    </div>
+
     </>
   );
 }
