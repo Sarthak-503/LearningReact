@@ -1,0 +1,34 @@
+So just because a component function is executed again,
+
+like this counter component function when we click
+
+one of those buttons here, just because that happens
+
+does not mean that all the JSX code that's produced
+
+by that component function is reinserted in the DOM.
+
+The old code is not thrown away
+
+and replaced by new HTML code.
+
+So when I increment this value, it looks as if React
+
+is only updating this span,
+
+is only working with that span element.
+
+All the other DOM elements are not touched by React.
+
+React works
+
+with a so-called virtual DOM for finding out
+
+which parts of the actual DOM should be updated.
+And it's using this virtual DOM
+
+because working with such a virtual DOM,
+
+which lives only in memory
+
+is faster than working with that real DOM here.
