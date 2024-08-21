@@ -22,6 +22,7 @@ export default function Player() {
   );
 }*/
 
+// const playerName = useRef();
 import { useRef, useState } from "react";
 export default function Player() {
   const playerName = useRef();
@@ -43,7 +44,7 @@ export default function Player() {
       {/* <h2>Welcome { playerName.current? playerName.current.value: 'unknown entity'}</h2>   */}
 
       <p>
-       <input type="text" ref={playerName} />
+        <input type="text" ref={playerName} />
         <button onClick={handleClick}>Set Name</button>
       </p>
     </section>
