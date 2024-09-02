@@ -31,14 +31,14 @@ function App() {
 
         {/* Context Api -> Comment dispatch */}
         {/* Example-1  */}
-      {/* <div className="App">
+      <div className="App">
         <h1>Context API</h1>
         <h1>Count is {counterState.count}</h1>
         <Counter/>
         <Counter/>
         <Counter/>
         <Counter/>
-      </div> */}
+      </div>
         {/* Example-2  */}
        
       {/* <div style={{
