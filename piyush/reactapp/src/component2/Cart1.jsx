@@ -4,11 +4,14 @@ import { getItemsSelector } from "../redux/slices/cartSlice";
 
 const Cart1 = () => {
   const items = useSelector(getItemsSelector);
+  console.log(items)
   const total = items.reduce((a, b) => a + b.price, 0);
   return (
-    <div className="alert alert-success">
-      <h3 className="text-center">
-        Total Items: {items.length} (Rs. {total})/-
+    <div >
+      <h3 >
+        Total Items: 
+        {items.length} 
+        (Rs. {total})/-
       </h3>
     </div>
   );

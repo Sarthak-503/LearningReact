@@ -10,7 +10,6 @@ const Cart = () => {
       {cart.items &&
         cart.items.map((item) => (
           <li key={item.name}>
-           
             {item.name} - ${item.price}
           </li>
         ))}

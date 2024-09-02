@@ -17,4 +17,4 @@ export const getItemsSelector = createSelector(
 
 export const { addItem } = cartSlice.actions;
 
-export default cartSlice;
+export default cartSlice.reducer;
