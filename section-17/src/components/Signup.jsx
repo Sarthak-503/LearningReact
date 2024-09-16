@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Input from "./Input";
 
 export default function Signup() {
 
@@ -9,8 +10,8 @@ export default function Signup() {
     const acquisitionChannel = formData.getAll("acquisition");
     const data = Object.fromEntries(formData.entries());
     data.acquisition = acquisitionChannel;
-    
-    if(data.password!==data['confirm-password']) {
+
+    if (data.password !== data["confirm-password"]) {
       setPasswordsAreNotEqual(true);
       return;
     }
@@ -22,16 +23,19 @@ export default function Signup() {
     <form onSubmit={handleSubmit}>
       <h2>Welcome on board!</h2>
       <p>We just need a little bit of data from you to get you started 🚀</p>
-
-      <div className="control">
-        <label htmlFor="email">Email</label>
-        <input id="email" type="email" name="email" required/>
+      <div className="control no-margin">
+        <label htmlFor="email">Email </label>
+        <input 
+        id="email"
+        type="email" 
+        name="email" 
+        required />
       </div>
 
       <div className="control-row">
         <div className="control">
           <label htmlFor="password">Password</label>
-          <input id="password" type="password" name="password" minLength={6}/>
+          <input id="password" type="password" name="password" minLength={6} />
         </div>
 
         <div className="control" required>
@@ -43,24 +47,24 @@ export default function Signup() {
             required
           />
           <div className="control-error">
-            {
-              passwordsAreNotEqual&& <p>Password and Confirm Password are not Equal</p>
-            }
+            {passwordsAreNotEqual && (
+              <p>Password and Confirm Password are not Equal</p>
+            )}
           </div>
         </div>
       </div>
 
       <hr />
 
-      <div className="control-row" >
+      <div className="control-row">
         <div className="control">
           <label htmlFor="first-name">First Name</label>
-          <input type="text" id="first-name" name="first-name" required/>
+          <input type="text" id="first-name" name="first-name" required />
         </div>
 
         <div className="control">
           <label htmlFor="last-name">Last Name</label>
-          <input type="text" id="last-name" name="last-name" required/>
+          <input type="text" id="last-name" name="last-name" required />
         </div>
       </div>
 
@@ -105,7 +109,12 @@ export default function Signup() {
 
       <div className="control">
         <label htmlFor="terms-and-conditions">
-          <input type="checkbox" id="terms-and-conditions" name="terms" required />
+          <input
+            type="checkbox"
+            id="terms-and-conditions"
+            name="terms"
+            required
+          />
           I agree to the terms and conditions
         </label>
       </div>
@@ -127,3 +136,6 @@ export default function Signup() {
 //the FormData constructor function This is built into the browser, not provided by me or React,
 //and FormData is an object that makes it easy to get hold of the different values entered into a form.
 //All your input fields should have that name attribute.
+
+
+// I have left last 4 lectures which contains of splitting the code into different files.
