@@ -1,6 +1,5 @@
 // Ajax Call using XMLHttpRequest 
-/*const getCountryData = function (country) {
-
+const getCountryData = function (country) {
     const request = new XMLHttpRequest();
     request.open('GET', `https://restcountries.com/v3.1/name/${country}?fullText=true`);
     request.send();
@@ -33,7 +32,7 @@
   getCountryData('portugal');
   // getCountryData('usa');
   getCountryData('germany');
-  */
+  
  /*
 //  Callback Hell  using XMLHttpRequest
 const getCountryAndNeighbour = function (country) {
@@ -209,42 +208,42 @@ const getCountryData = function (country) {
 
 
 
-const whereAmI = async function () {  
-    try {
-      // Geolocation
-      const pos = await getPosition();  
-      const { latitude: lat, longitude: lng } = pos.coords;
+// const whereAmI = async function () {  
+//     try {
+//       // Geolocation
+//       const pos = await getPosition();  
+//       const { latitude: lat, longitude: lng } = pos.coords;
   
-      // Reverse geocoding
-      const resGeo = await fetch(`https://geocode.xyz/${lat},${lng}?geoit=json`);
-      if (!resGeo.ok) throw new Error('Problem getting location data');
+//       // Reverse geocoding
+//       const resGeo = await fetch(`https://geocode.xyz/${lat},${lng}?geoit=json`);
+//       if (!resGeo.ok) throw new Error('Problem getting location data');
   
-      const dataGeo = await resGeo.json();
-      console.log(dataGeo);
+//       const dataGeo = await resGeo.json();
+//       console.log(dataGeo);
   
-      // Country data
-      const res = await fetch(
-        `https://restcountries.eu/rest/v2/name/${dataGeo.country}`
-      );
+//       // Country data
+//       const res = await fetch(
+//         `https://restcountries.eu/rest/v2/name/${dataGeo.country}`
+//       );
       
-      if (!resGeo.ok) throw new Error('Problem getting country');
+//       if (!resGeo.ok) throw new Error('Problem getting country');
       
-      if (!res.ok) throw new Error('Problem getting country');
+//       if (!res.ok) throw new Error('Problem getting country');
   
-      const data = await res.json();
-      console.log(data);
-      renderCountry(data[0]);
-    } catch (err) {
-      console.error(`${err} 💥`);  // show 404 -> not depicting what the error actually was, therefore added a Error statement in try block
-    }
-  };
-  whereAmI();
-  console.log('FIRST'); // runs first
+//       const data = await res.json();
+//       console.log(data);
+//       renderCountry(data[0]);
+//     } catch (err) {
+//       console.error(`${err} 💥`);  // show 404 -> not depicting what the error actually was, therefore added a Error statement in try block
+//     }
+//   };
+//   whereAmI();
+//   console.log('FIRST'); // runs first
   
   
-  const whereAmI = async function (country) {// this fn keep running in the bg while performing the code inside it.
-      const res = await fetch (`https://restcountries.com/v3.1/name/${country}?fullText=true`)   // wait before fetch returns a Promise, So basically await will stop decode execution at this
-      // point of the function until the premise is fulfilled(data has been fetched) but all this is running in bg as this code is in async
-      const data = await res.json();
-      console.log(data);
-  }
+//   const whereAmI = async function (country) {// this fn keep running in the bg while performing the code inside it.
+//       const res = await fetch (`https://restcountries.com/v3.1/name/${country}?fullText=true`)   // wait before fetch returns a Promise, So basically await will stop decode execution at this
+//       // point of the function until the premise is fulfilled(data has been fetched) but all this is running in bg as this code is in async
+//       const data = await res.json();
+//       console.log(data);
+//   }
