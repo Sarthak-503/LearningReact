@@ -15,7 +15,7 @@ function App() {
     // setChosenCount(newCount);// this will triger a comp fn execution 
     setChosenCount((prevChosenCount)=>prevChosenCount+1);
     // React performs state batching,which simply means that multiple state updates that are triggered from the same function, for example,
-    //are batched together and will only lead to one component function execution.
+    // are batched together and will only lead to one component function execution.
   }
   return (
     <>

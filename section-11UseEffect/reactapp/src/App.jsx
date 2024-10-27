@@ -107,7 +107,7 @@ function App() {
   return (
     <>
     {/* Error Form  */}
-      <Modal 
+      <Modal
       // ref={modal}
       open={modalIsOpen}
       onClose={handleStopRemovePlace}      // for closing the modal through esc button
