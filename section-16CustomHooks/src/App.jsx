@@ -7,33 +7,17 @@ import logoImg from './assets/logo.png';
 import AvailablePlaces from './components/AvailablePlaces.jsx';
 import { fetchUserPlaces, updateUserPlaces } from './http.js';
 import Error from './components/Error.jsx';
-
+import {useFetch} from '../src/hooks/use-fetch.js';
 function App() {
   const selectedPlace = useRef();
-
-  const [userPlaces, setUserPlaces] = useState([]);
-  const [isFetching, setIsFetching] = useState(false);
-  const [error, setError] = useState();
 
   const [errorUpdatingPlaces, setErrorUpdatingPlaces] = useState();
 
   const [modalIsOpen, setModalIsOpen] = useState(false);
 
-  useEffect(() => {
-    async function fetchPlaces() {
-      setIsFetching(true);
-      try {
-        const places = await fetchUserPlaces();
-        setUserPlaces(places);
-      } catch (error) {
-        setError({ message: error.message || 'Failed to fetch user places.' });
-      }
+  // Any state that is managed by custom hook will also belong to your component in which you are using them
+  const {isFetching,error,fetchedData:userPlaces,setFetchedData:setUserPlaces} = useFetch(fetchUserPlaces, []);
 
-      setIsFetching(false);
-    }
-
-    fetchPlaces();
-  }, []);
 
   function handleStartRemovePlace(place) {
     setModalIsOpen(true);
@@ -88,8 +72,10 @@ function App() {
 
       setModalIsOpen(false);
     },
-    [userPlaces]
+    [userPlaces, setUserPlaces]
   );
+  // Earlier it sees setUserPlaces as a fn used for setting the user which will  never change,but now it 
+  // see it as a property or object, add setUserPlaces
 
   function handleError() {
     setErrorUpdatingPlaces(null);
