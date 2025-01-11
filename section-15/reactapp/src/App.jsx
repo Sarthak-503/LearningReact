@@ -30,10 +30,11 @@ function App() {
     // await updateUserPlaces([selectedPlace,...userPlaces]);
     // updating the data in the UI 
     setUserPlaces((prevPickedPlaces) => {
-      console.log(prevPickedPlaces);
+      console.log("prevPickedPlaces",prevPickedPlaces);
       if (!prevPickedPlaces) {
         prevPickedPlaces = [];
       }
+      // If it is already picked,just return it
       if (prevPickedPlaces.some((place) => place.id === selectedPlace.id)) {
         return prevPickedPlaces;
       }

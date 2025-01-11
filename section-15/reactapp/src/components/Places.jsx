@@ -1,5 +1,5 @@
 export default function Places({ title, places, fallbackText, onSelectPlace,loadingText,isLoading }) {
-  // console.log(places);
+  console.log(places);
   return (
     <section className="places-category">
       {isLoading&& <p className="fallback-text">{loadingText}</p> }
