@@ -24,7 +24,8 @@ function App() {
     setModalIsOpen(false);
   }
   // updating the data in the UI and sending the calling the api 
- async function handleSelectPlace(selectedPlace) {
+ async function handleSelectPlace(selectedPlace) {   //  selectedPlace = {id,title,image,lat,lon}
+  console.log(selectedPlace);
     
     // alternative way-> first call api-> setLoader(true) if data comes set it to new data, else show an error UI
     // await updateUserPlaces([selectedPlace,...userPlaces]);
@@ -48,16 +49,18 @@ function App() {
       await updateUserPlaces([selectedPlace,...userPlaces]);
     } catch (error){ // we have to manage 3 states
       setUserPlaces(userPlaces);// if api not send it will again set to old UI
-      // This is optimal updating first set new UI, if api not send set UI to old one.
+      // This is optimal updating first set new UI, if api not send set UI to old one.(happens bcz of server not working)
       setErrorUpdatingPlace(error.message);
     }
   }
 
   const handleRemovePlace = useCallback(async function handleRemovePlace() {
+    // Updating In UI
     setUserPlaces((prevPickedPlaces) =>
       prevPickedPlaces.filter((place) => place.id !== selectedPlace.current.id)
     );
 
+    // Updating in backend
     try{
     await updateUserPlaces( // add userPlaces in dependency array
         userPlaces.filter((place)=> place.id!== selectedPlace.current.id)

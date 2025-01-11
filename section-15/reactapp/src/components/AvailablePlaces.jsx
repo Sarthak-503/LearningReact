@@ -18,10 +18,13 @@ export default function AvailablePlaces({ onSelectPlace }) {
       try {
         const response = await fetch("http://localhost:3000/places"); // if fetch fails bcz of no internet , hence we use Error and try- catch block
         const resData = await response.json();
+        console.log(resData);
         if (!response.ok) {
           throw new Error("Failed to fetch places");
         }
+        // console.log("resData", resData);
         // Not return a Promise,therefore not used await , use callback
+        // Here we are sorting places according to my location(sending my latitude and longitude taking them as reference) and places are coming from backend
         navigator.geolocation.getCurrentPosition((position)=>{
           const sortedPlaces = sortPlacesByDistance(resData.places,position.coords.latitude,position.coords.longitude)
           setAvailaiblePlaces(sortedPlaces); // data is availaible here

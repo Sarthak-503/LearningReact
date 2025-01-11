@@ -17,7 +17,7 @@
 
 import axios from 'axios';
 
-export async function updateUserPlaces(places) {
+export async function updateUserPlaces(places) { // places is an array
   try {
     const response = await axios.put('http://localhost:3000/user-places', {
       places: places, // The body is sent as JSON by default
