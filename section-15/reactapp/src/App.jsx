@@ -66,6 +66,7 @@ function App() {
         userPlaces.filter((place)=> place.id!== selectedPlace.current.id)
       )
     } catch (error) {
+      // Optimal updating
       setUserPlaces(userPlaces);
       setErrorUpdatingPlace({
         message:error.message || 'Failed to delete place'
