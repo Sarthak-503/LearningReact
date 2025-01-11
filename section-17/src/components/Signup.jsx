@@ -2,7 +2,6 @@ import { useState } from "react";
 import Input from "./Input";
 
 export default function Signup() {
-
   const [passwordsAreNotEqual, setPasswordsAreNotEqual] = useState(false);
   function handleSubmit(e) {
     e.preventDefault();
@@ -15,23 +14,21 @@ export default function Signup() {
       setPasswordsAreNotEqual(true);
       return;
     }
-      console.log(data);
+    console.log(data);
 
     // event.target.reset();  // Used for reset after submitting
   }
   return (
+    // Form
     <form onSubmit={handleSubmit}>
       <h2>Welcome on board!</h2>
       <p>We just need a little bit of data from you to get you started 🚀</p>
+      {/* Email  */}
       <div className="control no-margin">
         <label htmlFor="email">Email </label>
-        <input 
-        id="email"
-        type="email" 
-        name="email" 
-        required />
+        <input id="email" type="email" name="email" required />
       </div>
-
+      {/* Password And Confirm-Password  */}
       <div className="control-row">
         <div className="control">
           <label htmlFor="password">Password</label>
@@ -53,9 +50,9 @@ export default function Signup() {
           </div>
         </div>
       </div>
-
       <hr />
 
+      {/* First-Name and Last-Name  */}
       <div className="control-row">
         <div className="control">
           <label htmlFor="first-name">First Name</label>
@@ -68,6 +65,7 @@ export default function Signup() {
         </div>
       </div>
 
+      {/* Role     */}
       <div className="control">
         <label htmlFor="phone">What best describes your role?</label>
         <select id="role" name="role" required>
@@ -79,6 +77,7 @@ export default function Signup() {
         </select>
       </div>
 
+      {/* How they Find Us     */}
       <fieldset>
         <legend>How did you find us?</legend>
         <div className="control">
@@ -107,6 +106,7 @@ export default function Signup() {
         </div>
       </fieldset>
 
+      {/* Terms and conditions  */}
       <div className="control">
         <label htmlFor="terms-and-conditions">
           <input
@@ -118,7 +118,7 @@ export default function Signup() {
           I agree to the terms and conditions
         </label>
       </div>
-
+      {/* Submit And Reset Button  */}
       <p className="form-actions">
         <button type="reset" className="button button-flat">
           Reset
@@ -136,6 +136,5 @@ export default function Signup() {
 //the FormData constructor function This is built into the browser, not provided by me or React,
 //and FormData is an object that makes it easy to get hold of the different values entered into a form.
 //All your input fields should have that name attribute.
-
 
 // I have left last 4 lectures which contains of splitting the code into different files.
