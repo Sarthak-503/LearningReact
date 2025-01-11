@@ -50,7 +50,8 @@ function App() {
 
   },[]) // if array removed => infinite loop
 
-  // useEffect(()=>{   //works fine but overusing useEffect as the component don't able to finish its whole execution before picked item completely render 
+  // useEffect(()=>{   //works fine but overusing useEffect as the 
+  // component don't able to finish its whole execution before picked item completely render 
   // as this is synchronous code, hence add it to the top or out of fn component and setPickedPlace[]
   //   const storedIds = JSON.parse(localStorage.getItem('selectedPlaces')) || [];
   //   const storedPlaces = storedIds.map((id)=>
@@ -127,12 +128,14 @@ function App() {
         </p>
       </header>
       <main>
+        {/* Picked Places  */}
         <Places
           title="I'd like to visit ..."
           fallbackText={'Select the places you would like to visit below.'}
           places={pickedPlaces}
           onSelectPlace={handleStartRemovePlace}
         />
+        {/* Available Places  */}
         <Places
           title="Available Places"
           places={availablePlaces}
