@@ -1,8 +1,8 @@
 import { CORE_CONCEPTS } from "../../data.js";
-import CoreConcept from "./CoreConcept.jsx"
+import CoreConcept from "./CoreConcept.jsx";
 import React from "react";
 
-const CoreConcepts = () => { 
+const CoreConcepts = () => {
   return (
     <>
       <section id="core-concepts">
@@ -10,6 +10,11 @@ const CoreConcepts = () => {
         <ul>
           {CORE_CONCEPTS.map((conceptItem) => (
             <CoreConcept key={conceptItem.title} {...conceptItem} />
+            // <CoreConcept
+            //   title={conceptItem.title}
+            //   description={conceptItem.description} // same
+            //   image={conceptItem.image}
+            // />
           ))}
         </ul>
       </section>
