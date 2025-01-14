@@ -1,32 +1,41 @@
 import classes from "./Counter.module.css";
 import { useDispatch, useSelector } from "react-redux"; // select a part of state managed by store
+import {counterActions} from "../store/counter"
 const Counter = () => {
   const toggleCounterHandler = () => {
-    dispatch({
-      type: "toggle"
-    });
+    // dispatch({
+    //   type: "toggle"
+    // });
+    dispatch(counterActions.toggleCounter());
+
   };
   // this fn will be executed by react-redux
-  const counter = useSelector((state) => state.counter); // useSelector returns a part of state which i wanna extract
-  const showCounter = useSelector((state) => state.showCounter);
+  const counter = useSelector((state) => state.counter.counter); // useSelector returns a part of state which i wanna extract
+  const showCounter = useSelector((state) => state.counter.showCounter);
   const dispatch = useDispatch();
 
   const incrementHandler = () => {
-    dispatch({
-      type: "increment",
-      amount: 1,
-    });
+    // dispatch({
+    //   type: "increment",
+    //   amount: 1,
+    // });
+    dispatch(counterActions.increment());
+        // execute this as a method because increment is a method which when executed creates a full action object with 
+    // the type set to this automatically created unique action identifier.
   };
   const increaseHandler = () => {
-    dispatch({
-      type: "increase",
-      amount: 10,
-    });
+    // dispatch({
+    //   type: "increase",
+    //   amount: 10,
+    // });
+    dispatch(counterActions.increase(10)); // generate {type:SOME_UNIQUE_IDENTIFIER, payload:10 }
+
   };
   const decrementHandler = () => {
-    dispatch({
-      type: "decrement",
-    });
+    // dispatch({
+    //   type: "decrement",
+    // });
+    dispatch(counterActions.decrement());
   };
 
   return (

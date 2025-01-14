@@ -1,13 +1,6 @@
 import { createStore } from "redux";
-import { createSlice } from "@reduxjs/toolkit";
-
 
 const initialState = { counter: 0, showCounter: true };
-
-// We are preparing a slice of our global state
-createSlice({
-
-})
 
 const counterReducer = (state = initialState, action) => {
   if (action.type === "increment") {
@@ -49,7 +42,7 @@ const store = createStore(counterReducer);
 
 export default store;
 
-// Challenges
+// Challenges with redux
 // 1.The more data we have in the initialState, the more different pieces of state we have,
 // the bigger our state objects get.
 // And that means that we need to copy a lot of state when we update the counter we still need to copy
